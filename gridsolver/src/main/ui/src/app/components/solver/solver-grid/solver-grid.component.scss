@@ -1,0 +1,19 @@
+.container {
+  width: max(min(80vw, 80vh), 400px);
+  height: max(min(80vw, 80vh), 400px);
+  border: 2px solid black;
+  padding: 0;
+}
+
+.sliders {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  display: block;
+}

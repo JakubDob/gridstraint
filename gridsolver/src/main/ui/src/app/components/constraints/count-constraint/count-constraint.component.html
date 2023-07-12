@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="header"><h2>Count options</h2></div>
+  <div class="content">
+    <mat-form-field>
+      <mat-label>Counted number</mat-label>
+      <input matInput type="number" [(ngModel)]="settings.countedValue" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Relation</mat-label>
+      <mat-select [(value)]="settings.relation">
+        <mat-option
+          *ngFor="let symbol of symbolIter | keyvalue"
+          [value]="symbol.value"
+        >
+          {{ symbol.value }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="settings.amount" />
+    </mat-form-field>
+  </div>
+  <div class="action-buttons">
+    <button mat-flat-button color="primary" (click)="onOKClick()">OK</button>
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 20px;
+}
+
+.header {
+  align-self: center;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+:host ::ng-deep .mdc-dialog__surface {
+  overflow: hidden;
+}

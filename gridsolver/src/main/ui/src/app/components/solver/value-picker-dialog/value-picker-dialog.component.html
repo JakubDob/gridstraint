@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="header">Value editor</h1>
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="value"
+      type="number"
+      placeholder="Enter a number"
+    />
+  </mat-form-field>
+
+  <div class="action-buttons">
+    <button mat-flat-button color="primary" [mat-dialog-close]="value">
+      OK
+    </button>
+    <button mat-flat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-flat-button color="warn" [mat-dialog-close]="null">
+      Remove
+    </button>
+  </div>
+</div>

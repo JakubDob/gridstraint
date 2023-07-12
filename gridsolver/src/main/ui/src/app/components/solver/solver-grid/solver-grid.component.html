@@ -1,0 +1,48 @@
+<div class="container">
+  <app-canvas-grid
+    [spacing]="spacing"
+    [rows]="rows"
+    [cols]="cols"
+    [cellRenderFn]="cellRenderFn"
+    [backgroundColor]="'black'"
+    [dirtyIndices]="dirtyIndices"
+    [animationIndices]="animationIndices"
+    [redrawAll]="redraw"
+    [fpsThrottle]="fpsThrottle"
+    (dragCellEvent)="onDragCell($event)"
+    (dropCellEvent)="onDropCell($event)"
+    (clickCellEvent)="onClickCell($event)"
+    (doubleClickCellEvent)="onDoubleClickCell($event)"
+    (keyDownEvent)="onKeyDown($event)"
+  ></app-canvas-grid>
+</div>
+<div class="sliders">
+  <div class="slider">
+    Rows ({{ rows }})
+    <input
+      type="range"
+      min="1"
+      max="50"
+      [(ngModel)]="rows"
+      (change)="onRowsChange()"
+    />
+  </div>
+  <div class="slider">
+    Cols ({{ cols }})
+    <input
+      type="range"
+      min="1"
+      max="50"
+      [(ngModel)]="cols"
+      (change)="onColsChange()"
+    />
+  </div>
+  <div class="slider">
+    Spacing ({{ spacing }})
+    <input type="range" min="0" max="50" [(ngModel)]="spacing" />
+  </div>
+  <div class="slider">
+    Fps ({{ fpsThrottle }})
+    <input type="range" min="0" max="60" [(ngModel)]="fpsThrottle" />
+  </div>
+</div>

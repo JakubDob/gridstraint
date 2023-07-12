@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  broker:
+    container_name: activemq_artemis
+    ports:
+      - 61616:61616
+    build:
+      context: broker
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      - grid
+    
+  web:
+    container_name: web
+    ports:
+      - 4444:4444
+    build:
+      context: gridsolver
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - broker
+    networks:
+      - grid
+
+  solver:
+    container_name: solver
+    build:
+      context: solver-service
+      dockerfile: Dockerfile
+    volumes:
+      - ./solver-service/connect.json:/etc/messaging/connect.json
+    depends_on:
+      - broker
+    restart: unless-stopped
+    networks:
+      - grid
+
+networks:
+  grid:

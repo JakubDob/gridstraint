@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="header"><h2>Alldifferent options</h2></div>
+  <div class="content">
+    <mat-form-field>
+      <mat-label>Label</mat-label>
+      <input matInput [(ngModel)]="label" />
+    </mat-form-field>
+    <div class="action-buttons">
+      <button mat-flat-button color="primary" (click)="onOKClick()">OK</button>
+      <button mat-flat-button mat-dialog-close>Cancel</button>
+    </div>
+  </div>
+</div>
